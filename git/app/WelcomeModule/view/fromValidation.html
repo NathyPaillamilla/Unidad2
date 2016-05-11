@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="loginformmodule">
+<html lang="en" ng-app="LoginFormModule">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
     <link href="../../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../../Share/main.css" rel="stylesheet">
+    <link href="../../Share/main.css" rel="stylesheet">f
 </head>
 <body>
 
@@ -22,19 +22,57 @@
         </a>
         
     </div>
+
 </div>
 </nav>
-<div class="container main-content">
-    <form name="theform">
+<div class="container main-content"
+ng-controller="LoginFormController">
 
+
+    <form name="theform" ng-submit="onSubmit();">
+
+        <!--Imput text nro 1 Nombre-->
      <div class="form-group">
          <label for="name">Tu nombre</label>
          <input type="text"
                 class="form-control"
-                id="name">
-
+                id="name"
+         ng-model="formModel.name"
+         >
      </div>
+
+        <div class="form-group">
+            <label for="name">Password</label>
+            <input type="password"
+                   class="form-control"
+                   id="password"
+                   ng-model="formModel.password"
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="name">Email</label>
+            <input type="email"
+                   class="form-control"
+                   id="email"
+                   ng-model="formModel.email"
+            >
+        </div>
+
+
+
+        <div class="form-group">
+            <button class="btn btn-primary"
+              type="submit"> Registar </button>
+
+
+        </div>
+
     </form>
+
+    <pre> {{ formModel.name | json}} </pre>
+    <pre> {{ formModel.password | json}} </pre>
+    <pre> {{ formModel.email | json}} </pre>
 
 </div>
     <script src="../../bower_components/angular/angular.min.js"></script>
